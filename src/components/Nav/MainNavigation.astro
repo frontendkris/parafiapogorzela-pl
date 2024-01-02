@@ -1,0 +1,23 @@
+---
+import { siteSettings } from "../../utils/store";
+import Logo from "../Logo.astro";
+---
+
+<nav class="
+  w-full
+  flex justify-between items-center
+  mt-8
+">
+  <a href="/">
+    <Logo />
+  </a>
+  <div class="
+    flex justify-center items-center gap-10 font-semibold
+  ">
+    <a href={siteSettings?.massIntentionsUrl}>Intencje</a>
+    <a href={siteSettings?.parishAnnouncementsUrl}>Ogłoszenia</a>
+    <a>Plan kolędy</a>
+    <a>Wiedza</a>
+    <a>Galeria</a>
+  </div>
+</nav>

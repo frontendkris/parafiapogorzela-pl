@@ -1,14 +1,55 @@
 ---
-import Card from "../components/Card.astro";
-import Welcome from "../components/Welcome.astro";
+import Informations from "../components/Informations.astro";
+import Hero from "../components/hero/Home.astro";
 import Layout from "../layouts/Layout.astro";
-import { getPosts } from "../utils/sanity";
-
-const posts = await getPosts();
 ---
 
-<Layout title="Welcome to Astro.">
-  <section>
-    {posts.length ? posts.map((post) => <Card post={post} />) : <Welcome />}
-  </section>
+<Layout 
+  title="Parafia pw. św. Michała Archanioła w Pogorzeli"
+  description="Odkryj naszą wspólnotę, sprawdź harmonogram mszy świętych, wydarzenia parafialne i poznaj nasze działania duszpasterskie."
+>
+  <Hero />
+  <Informations />
 </Layout>
+
+<style is:global>
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  .heading {
+    font-family: 'EB Garamond', serif;
+  }
+  .h0 {
+    font-size: 96px;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -1.92px;
+  }
+  .h1 {
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -1.28px;
+  }
+  .h2 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 135%;
+    letter-spacing: -0.4px;
+  }
+  .h3 {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 100%;
+  }
+  .h4 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 120%;
+  }
+  .h5 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 150%;
+  }
+</style>

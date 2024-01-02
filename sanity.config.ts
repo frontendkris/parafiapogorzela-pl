@@ -21,13 +21,19 @@ import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./schema";
+import { myStructure } from "./deskStructure";
 
 export default defineConfig({
-  name: "project-name",
-  title: "Project Name",
+  name: "parafia-pogorzela",
+  title: "Parafia Pogorzela",
   projectId,
   dataset,
-  plugins: [deskTool(), visionTool()],
+  plugins: [
+    deskTool({
+      structure: myStructure,
+    }),
+    visionTool()
+  ],
   schema: {
     types: schemaTypes,
   },

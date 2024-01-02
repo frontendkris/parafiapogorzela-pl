@@ -1,0 +1,37 @@
+---
+import { siteSettings } from "../utils/store";
+---
+<footer class="site-footer">
+  <div class="container mx-auto">
+    <div class="flex justify-between items-end">
+      <div class="flex flex-col gap-10">
+        <div class="group">
+          <h2 class="heading h4">Parafia pw. św. Michała Archanioła w Pogorzeli</h2>
+          <p>ul. Rynek 43, 63-860 Pogorzela</p>
+          {siteSettings?.phone &&
+            <p>nr tel. {siteSettings.phone}</p>
+          }
+        </div>
+  
+        {siteSettings?.bankAccount &&
+          <div class="group">
+            <h3 class="h5">Konto bankowe</h3>
+            <p>{siteSettings.bankAccount}</p>
+          </div>
+        }
+      </div>
+      <div>
+        <a href="//frontendkris.dev" target="_blank">Projekt i realizacja – frontendkris.dev</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    @apply py-20 bg-nero text-white;
+  }
+  .group {
+    @apply flex flex-col gap-4;
+  }
+</style>

@@ -1,0 +1,101 @@
+---
+import {siteSettings} from "../utils/store.ts";
+import type { ServiceRow, OfficeRow } from '../utils/sanity.ts'
+---
+<section class="informations">
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1394" fill="none" class="informations-bg">
+    <path d="M-44 0.5L1489 325V1394H-44L-44 0.5Z" fill="url(#paint0_radial_107_245)"/>
+    <defs>
+      <radialGradient id="paint0_radial_107_245" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1189.5 455.5) rotate(140.081) scale(2171.57 1839.13)">
+        <stop stop-color="#2B2B35"/>
+        <stop offset="1" stop-color="#0E0E12"/>
+      </radialGradient>
+    </defs>
+  </svg>
+  
+  <div class="informations-grid">
+    <div class="text-column">
+      <div class="text-box">
+        <h2 class="heading h1">Msze Święte</h2>
+        <p>{siteSettings?.messes}</p>
+        <p><a href={siteSettings?.massIntentionsUrl}>Zobacz intencje mszalne lll</a></p>
+      </div>
+      <div class="text-box">
+        <h3 class="heading h3">Spowiedź święta</h3>
+        <p>{siteSettings?.confession}</p>
+      </div>
+      <div class="text-box">
+        <h3 class="heading h3">Nabożeństwa</h3>
+        {siteSettings?.services.map((row: ServiceRow) => (
+          <p>
+            <span class="font-semibold">{row.name}</span>
+            {!!row.when && <><br>{row.when}</>}
+          </p>
+        ))}
+      </div>
+      <div class="text-box">
+        <h3 class="heading h3">Biuro Parafialne</h3>
+        <div class="flex gap-10 leading-normal">
+          <div class="flex flex-col gap-4">
+            {siteSettings?.office.map((row: OfficeRow) => (
+              <p class="font-semibold">{row.day}</p>
+            ))}
+          </div>
+          <div class="flex flex-col gap-4">
+            {siteSettings?.office.map((row: OfficeRow) => (
+              <p>
+                {row.hours}
+                {!!row.note && <><br />{row.note}</>}
+              </p>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="patron">
+      <div class="patron-sticky">
+        <div class="patron-images">
+          <img src="/michael-original.jpg" alt="Wizerunek patrona parafii – św. Michał Archanioł" class="patron-front">
+          <img src="/michael-original.jpg" alt="Wizerunek patrona parafii – św. Michał Archanioł – romzyte tło" class="patron-bg">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .informations {
+    @apply relative flex justify-center -mt-[75vh] pt-64 pb-20 max-h-max overflow-hidden text-xl;
+  }
+  .informations-bg {
+    @apply absolute left-0 top-0 w-svw h-max;
+  }
+  .informations-grid {
+    @apply container relative grid grid-cols-12 mx-auto gap-20 items-stretch;
+  }
+  
+  .text-column {
+    @apply relative grid col-start-2 col-span-5 justify-start items-start gap-20 text-white z-10;
+  }
+  .text-box {
+    @apply flex flex-col gap-y-5 px-5 whitespace-pre-wrap;
+  }
+
+  /* TODO: sticky image */
+  .patron {
+    @apply relative h-full grid col-start-7 col-span-5 z-10;
+  }
+  .patron-sticky {
+    @apply sticky left-0 top-0 aspect-[485/713];
+  }
+  .patron-images {
+    @apply relative aspect-[485/713];
+  }
+  .patron img:first-child {
+    @apply absolute left-0 top-0 border-2 border-black z-10;
+  }
+  .patron img:last-child {
+    @apply absolute left-0 top-0 blur-3xl z-0;
+  }
+</style>

@@ -1,0 +1,38 @@
+---
+type props = {
+  title: string;
+  priority?: "primary" | "secondary";
+  url?: string;
+}
+
+const { title, priority = "primary", url } = Astro.props;
+---
+
+<a role="button" href={url}>
+  <div class:list={[
+    "flex justify-start items-center gap-2",
+    "py-4 px-8",
+    `btn btn--${priority}`
+  ]}>
+    {title}
+  </div>
+</a>
+
+<style>
+  .btn {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    border: 2px solid;
+  }
+  .btn--primary {
+    background-color: white;
+    border-color: white;
+    color: #293459;
+  }
+  .btn--secondary {
+    background-color: transparent;
+    border-color: white;
+    color: white;
+  }
+</style>

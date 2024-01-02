@@ -1,0 +1,43 @@
+---
+import {siteSettings} from "../../utils/store.ts";
+import Button from "../Button.astro";
+import MainNavigation from "../Nav/MainNavigation.astro";
+---
+<section
+  class="
+    fullscreen fullscreen--home hero-bg--home
+    flex justify-center
+  "
+>
+  <div class="container relative">
+    <div class="flex flex-col justify-between">
+      <MainNavigation />
+      <div class="hero-heading">
+        <h1>
+          <span class="heading h2">Parafia pw. św.</span><br>
+          <span class="heading h0">Michała Archanioła</span>
+        </h1>
+        <div class="flex justify-start items-center gap-10 mt-8">
+          <Button priority="primary" title="Intencje mszalne" url={siteSettings?.massIntentionsUrl} />
+          <Button priority="secondary" title="Ogłoszenia parafialne" url={siteSettings?.parishAnnouncementsUrl} />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-bg--home {
+    @apply bg-no-repeat bg-center bg-cover bg-nero text-white;
+    background-image: url('/hero-bg.jpg');
+  }
+  .fullscreen {
+    @apply w-full h-full min-h-[100vh];
+  }
+  .fullscreen--home {
+    @apply min-h-[140vh];
+  }
+  .hero-heading {
+    @apply absolute top-[50vh] left-0 -translate-y-1/2;
+  }
+</style>
