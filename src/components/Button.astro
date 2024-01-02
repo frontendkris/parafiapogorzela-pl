@@ -1,11 +1,13 @@
 ---
-type props = {
+type Props = {
   title: string;
   priority?: "primary" | "secondary";
   url?: string;
 }
 
-const { title, priority = "primary", url } = Astro.props;
+const { title, priority = "primary", url }: Props = Astro.props;
+
+// TODO: simple red link with arrow
 ---
 
 <a role="button" href={url}>
