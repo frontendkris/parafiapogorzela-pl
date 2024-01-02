@@ -1,0 +1,22 @@
+---
+import ImagesCarousel from "./ImagesCarousel.astro";
+---
+<section class="relative">
+  <div class="quote-decorator"></div>
+  <div class="container mx-auto overflow-visible">
+    <blockquote class="quote">
+      <p class="heading h1 text-luckypoint text-center">Gdzie dwóch albo trzech gromadzi się <br>w Moje imię, tam jestem pośród nich</p>
+      <footer><cite>Mt 18,20</cite></footer>
+    </blockquote>
+    <ImagesCarousel />
+  </div>
+</section>
+
+<style>
+  .quote {
+    @apply flex justify-center items-center gap-20 py-32;
+  }
+  .quote-decorator {
+    @apply absolute left-0 right-0 bottom-0 m-auto h-40 w-full bg-bastille;
+  }
+</style>

@@ -1,0 +1,49 @@
+---
+const imagePaths = [
+  '/images-carousel/slide-1.jpg',
+  '/images-carousel/slide-2.jpg',
+  '/images-carousel/slide-3.jpg',
+  '/images-carousel/slide-4.jpg',
+  '/images-carousel/slide-5.jpg',
+];
+---
+<div class="swiper overflow-visible">
+  <div class="swiper-wrapper overflow-visible">
+    {imagePaths.map(image => (
+      <div class="swiper-slide">
+        <img src={image} />
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .swiper {
+    @apply overflow-visible;
+  }
+</style>
+
+<script>
+  import Swiper from 'swiper';
+  import 'swiper/css';
+
+  const swiper = new Swiper('.swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 40,
+    centeredSlides: false,
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 10
+      },
+      480: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      640: {
+        slidesPerView: 4,
+        spaceBetween: 40
+      }
+    }
+  });
+</script>
