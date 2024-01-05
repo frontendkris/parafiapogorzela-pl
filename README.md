@@ -1,78 +1,54 @@
-# A minimal Astro site with Sanity Studio
+# Parish Website of the Church in Pogorzela
+This project involves the creation of a modern website for the Catholic Parish of St. Michael the Archangel in Pogorzela. The objective was to design an intuitive, user-friendly, and aesthetically pleasing platform, enabling parishioners to access the latest information, events, and other important content from parish life. Simultaneously, it was crucial to provide priests and the administrator with an extremely simple way to manage the site.
 
-This starter uses [Astro](https://astro.build/) for the front end and [Sanity](https://sanity.io/) to handle its content.
+The scope of work included [graphic design in Figma](https://www.figma.com/file/ZoUBSToIXnBMWNxMKfTIxB/Parafia-Pogorzela?type=design&node-id=0%3A1&mode=design&t=L65c6KqYN0lz3uki-1) and full website implementation.
 
-## Featuring
+### First Things First
+he most important elements are links to two PDF files: parish announcements and mass intentions. Both files are the main reason for parishioners visiting the site.
 
-- How to fetch content as data from [the Sanity Content Lake](https://www.sanity.io/docs/datastore)
-- How to render block content with [Portable Text](https://www.sanity.io/docs/presenting-block-text)
-- A [Sanity Studio](https://www.sanity.io/docs/sanity-studio) to create and edit content
-- How to crop and render images with [Sanity Image URLs](https://www.sanity.io/docs/presenting-images)
+### Easier Management
+The mentioned files are the reason for using Sanity as a CMS. This system allowed me to design an administrative panel in such a way that all repetitive information could be extracted with a single query. Previously, the administrator had to manually transcribe document contents from Microsoft Office to a WordPress site, which then required reformatting. Now, simply uploading the PDF to the appropriate field suffices.
 
-## Prerequisites
+### Reducing Website Maintenance Costs
+Before implementing my solution, the parish had to cover the costs of hosting, domain, and SSL. I promised to reduce the costs to about 60 PLN per year, i.e., the cost of the domain alone. I kept my word, optimizing the site to the extent that it could safely use the free plans of Vercel and Sanity, leaving plenty of bandwidth reserve in both services.
 
-- [Node.js](https://nodejs.org/en/) (v16.12 or later)
+### Solution Reliability
+WordPress proved to be unintuitive and too complex for administrators. After a few years, the engine was outdated, and the front-end was damaged. It was a burden for the parish, and the parish could not afford the cost of maintaining the site.
 
-## Getting started
+In contrast, Astro supports SSG and SSR. No one has direct access to the site's code. Sanity is easy to use and secure. This time, I could guarantee that in 10 years, the site would look and function the same.
 
-Run the following commands
+## Technologies
+- [Astro](https://astro.build/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [GROQ](https://www.sanity.io/docs/groq) - query language & GraphQL alternative
 
-1. `npm install` to install dependencies
-2. `npx sanity@latest init --env`, this will:
+## Services
+- [Sanity.io](https://www.sanity.io/) as CMS
+- [Vercel](https://vercel.com/) as hosting
 
-   - ask you to select or create a Sanity project and dataset
-   - output a `.env` file with appropriate variables
-   - _(or use `sanity init --env` if you have the CLI installed)_
+## Optimization and Performance
+The website has been optimized to minimize data transmission, which is particularly important given the limitations of Vercel's and Sanity's free plans. This optimization was based on analyzing the monthly visit statistics of the site before implementing the new version.
 
-3. Rename the variables in the .env file:
+## Design
+[Graphic design](https://www.figma.com/file/ZoUBSToIXnBMWNxMKfTIxB/Parafia-Pogorzela?type=design&node-id=0%3A1&mode=design&t=L65c6KqYN0lz3uki-1) was created in Figma, allowing for precise planning of the layout, color scheme, and interactive elements of the site. Every aspect of the design is rooted in the history of the parish and its daily life, to ensure the site looks familiar and engenders trust in visitors.
 
-   - ~~SANITY_STUDIO_PROJECT_ID~~ → PUBLIC_SANITY_STUDIO_PROJECT_ID
-   - ~~SANITY_STUDIO_DATASET~~ → PUBLIC_SANITY_STUDIO_DATASET
+## Installation and Running
+To run the project locally, follow these steps:
 
-4. `npm run dev` to start the development server
-
-Your Astro app should now be running on [http://localhost:4321/](http://localhost:4321/) and Studio on [http://localhost:4321/admin](http://localhost:4321/).
-
-### Add content
-
-1. Visit the Studio and create and publish a new `Post` document
-2. Visit the homepage and refresh the page to see your content rendered on the page
-
-The schema for the `Post` document is defined in the `/schema` folder. You can [add more document types](https://www.sanity.io/docs/schema-types) to the Studio to suit your needs.
-
-## Removing TypeScript
-
-If you do not wish to use TypeScript, we've included a `remove-typescript.mjs` file in the root of this repository. You can run this file with `node remove-typescript.mjs` to strip all types from this project. Please run this before tampering with any code to ensure that all types are properly removed.
-
-If you intend to use TypeScript, you can safely remove the `remove-typescript.mjs` file.
-
-## Removing the embedded Studio
-
-If you wish to manage and host the Studio separately, you remove the `studioBasePath` property for the `sanity` configuration in `astro.config.mjs`. You can also remove the following dependencies:
-
-- `output` in `astro.config.mjs`…
-  - …and `adapter` in `astro.config.mjs`
-- `react()` in `astro.config.mjs`
-- `@sanity/vision` `react` `react-dom` `@types/react` `@types/react-dom` from `package.json`
-- `schema` folder (you might want to copy this to the new Studio location)
-- `sanity.config.ts` (you might want to copy this to the new Studio location)
-
-## Deployments
-
-Feel free to deploy the App to whichever hosting provider you prefer ([Vercel](https://vercel.com/), [Netlify](https://netlify.com), [Cloudflare](https://pages.cloudflare.com/), etc). Remember [to change the adapter](https://docs.astro.build/en/guides/server-side-rendering/#adding-an-adapter) in the `astro.config.mjs` file to match your hosting provider.
-
-### Deploying the Studio on \*\.sanity.studio
-
-You can also deploy the Sanity Studio on its own URL by running `npx sanity deploy`, provided you have added a [`sanity.cli.ts` configuration file](https://www.sanity.io/docs/cli):
-
-```ts
-// sanity.cli.ts
-import { defineCliConfig } from "sanity/cli";
-
-export default defineCliConfig({
-  api: {
-    projectId: "<your-project-id>",
-    dataset: "<your-dataset-name>",
-  },
-});
 ```
+git clone https://github.com/frontendkris/parafiapogorzela-pl.git
+cd parafiapogorzela-pl
+npm install
+npm run dev
+```
+
+The project requires providing environmental variables for integration with Sanity in the `.env` file.
+
+## CMS Usage
+Sanity CMS allows for easy content management of the site. Administrators can add, edit, and delete content using a simple user interface. [CMS Documentation](https://www.sanity.io/docs).
+
+## License
+This project is available for review and learning purposes. Cloning this repository is only permitted for code review purposes in a local development environment (IDE).
+
+Any other use of the code, including modification, distribution, commercial use, or public sharing, is strictly prohibited without the express written consent of the author.
