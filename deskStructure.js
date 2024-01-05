@@ -9,4 +9,4 @@ export const myStructure = (S) =>
             .schemaType('siteSettings')
             .documentId('siteSettings')),
             ...S.documentTypeListItems().filter(listItem => !['siteSettings'].includes(listItem.getId()))
-    ])
+  ]);

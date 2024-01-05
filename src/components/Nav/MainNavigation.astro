@@ -1,19 +1,21 @@
 ---
 import { siteSettings } from "../../utils/store";
 import Logo from "../Logo.astro";
----
+import type { Color } from "../Logo.astro"
 
-<nav class="
-  w-full
-  flex justify-between items-center
-  mt-8
-">
+export type Navigation = {
+  color?: Color;
+}
+
+const {color = "light"}: Navigation = Astro.props;
+
+const textColor = color === "light" ? "text-white" : "text-black";
+---
+<nav class="w-full flex justify-between items-center lg:py-4">
   <a href="/">
-    <Logo />
+    <Logo type={color} />
   </a>
-  <div class="
-    flex justify-center items-center gap-10 font-semibold
-  ">
+  <div class={`flex justify-center items-center gap-10 font-semibold ${textColor}`}>
     <a href={siteSettings?.massIntentionsUrl}>Intencje</a>
     <a href={siteSettings?.parishAnnouncementsUrl}>Ogłoszenia</a>
     <a href="/galeria">Galeria</a>

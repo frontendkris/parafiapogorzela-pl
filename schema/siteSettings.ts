@@ -75,7 +75,7 @@ export default defineType({
             note: 'note',
           },
           prepare(selection) {
-            const {title, hours, note} = selection;
+            const { title, hours, note } = selection;
             return {
               title: `${title}:  ${hours}${!!note ? ', ' + note : ''}`,
             }
@@ -138,7 +138,7 @@ export default defineType({
                   link: 'link',
                 },
                 prepare(selection) {
-                  const {title, link} = selection;
+                  const { title, link } = selection;
                   return {
                     title: `${title} ${!!link === false ? '– brak linku' : ''}`,
                   }
@@ -153,13 +153,20 @@ export default defineType({
             albums: 'albums',
           },
           prepare(selection) {
-            const {title, albums} = selection;
+            const { title, albums } = selection;
             return {
               title: `${title} (${albums.length} albumów)`,
             }
-          }
+          },
         },
-      }]
+      }],
     }),
   ],
-})
+  preview: {
+    prepare() {
+      return {
+        title: `Ustawienia strony`,
+      }
+    },
+  }
+});
