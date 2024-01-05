@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+import {siteSettings} from "../utils/store.ts";
+import type {albumsCollection, Album} from "../utils/sanity.ts";
+import Caret from "../components/Partials/Caret.astro";
+import Hero from "../components/Hero/Page.astro";
+---
+<Layout
+  title=""
+  description=""
+>
+  <Hero title="Galeria" />
+  <section class="gallery py-10">
+    <div class="container mx-auto">
+      <div class="hero-heading">
+        <h1 class="heading h0 text-center mt-10 mb-20">Galeria zdjęć</h1>
+      </div>
+      <div class="narrow mx-auto flex flex-col gap-10">
+        {siteSettings?.galleryLinks.map((albumsCollection: albumsCollection) => (
+          <div class="lg:flex lg:gap-10 lg:items-start lg:relative">
+            <h2 class="heading h1 text-left mt-6 lg:absolute lg:right-full lg:pr-10 lg:mt-3">{albumsCollection.year}</h2>
+            <ul class="link-list w-full">
+              {!!albumsCollection.albums &&
+                albumsCollection.albums.map((album: Album) => (
+                  !!album.link &&
+                  <li class="link-list-item">
+                    <a href={album.link} target="_blank" class="flex justify-between items-center w-full"><span>{album.name}</span><Caret /></a>
+                  </li>
+                )
+              )}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .gallery {
+    @apply text-lg overflow-hidden bg-luckypoint text-white;
+  }
+</style>

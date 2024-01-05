@@ -16,9 +16,10 @@ type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 const { slug } = Astro.params as Params;
 
 const post = await getPost(slug);
+
+// TODO: description
 ---
 
-<!-- TODO: description -->
 <Layout 
   title={post.title!}
   description=""
