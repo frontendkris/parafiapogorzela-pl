@@ -37,6 +37,17 @@ export type OfficeRow = {
   note: string;
 }
 
+export type Album = {
+  date?: string,
+  name: string,
+  link?: string,
+}
+
+export type albumsCollection = {
+  year: string,
+  albums: Album[],
+}
+
 export async function getOptions(): Promise<{ [key: string]: any }> {
   return await useSanityClient().fetch(
     groq`*[_type == "siteSettings"][0]{
@@ -49,6 +60,7 @@ export async function getOptions(): Promise<{ [key: string]: any }> {
       "services": services,
       "office": office,
       "bankAccount": bankAccount,
+      "galleryLinks": galleryLinks,
     }`
   );
 }

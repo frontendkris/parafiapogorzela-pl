@@ -1,57 +1,17 @@
 ---
 import Informations from "../components/Informations.astro";
+import Knowledge from "../components/Knowledge.astro";
 import Quote from "../components/Quote.astro";
-import Hero from "../components/hero/Home.astro";
+import Hero from "../components/Hero/Home.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout 
+<Layout
   title="Parafia pw. św. Michała Archanioła w Pogorzeli"
   description="Odkryj naszą wspólnotę, sprawdź harmonogram mszy świętych, wydarzenia parafialne i poznaj nasze działania duszpasterskie."
 >
   <Hero />
   <Informations />
   <Quote />
+  <Knowledge />
 </Layout>
-
-<style is:global>
-  body {
-    font-family: 'Open Sans', sans-serif;
-  }
-  .heading {
-    font-family: 'EB Garamond', serif;
-  }
-  .h0 {
-    font-size: 96px;
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -1.92px;
-  }
-  .h1 {
-    font-size: 64px;
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -1.28px;
-  }
-  .h2 {
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 135%;
-    letter-spacing: -0.4px;
-  }
-  .h3 {
-    font-size: 36px;
-    font-weight: 500;
-    line-height: 100%;
-  }
-  .h4 {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 120%;
-  }
-  .h5 {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 150%;
-  }
-</style>

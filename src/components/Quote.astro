@@ -1,14 +1,16 @@
 ---
 import ImagesCarousel from "./ImagesCarousel.astro";
+//TODO: odłozyć ładowanie karuzeli do wejścia w ekran
+// TODO: przycisk z linkiem do galerii
 ---
 <section class="relative">
   <div class="quote-decorator"></div>
   <div class="container mx-auto overflow-visible">
     <blockquote class="quote">
       <p class="heading h1 text-luckypoint text-center">Gdzie dwóch albo trzech gromadzi się <br>w Moje imię, tam jestem pośród nich</p>
-      <footer><cite>Mt 18,20</cite></footer>
+      <footer><cite class="text-2xl font-normal leading-none not-italic">Mt 18,20</cite></footer>
     </blockquote>
-    <ImagesCarousel />
+    <ImagesCarousel client:visible />
   </div>
 </section>
 

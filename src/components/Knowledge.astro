@@ -1,0 +1,38 @@
+---
+  const caveImageSrc = "/cave.png";
+  import { getPosts, type Post } from "../utils/sanity";
+  import Caret from "./Partials/Caret.astro"
+
+  const posts = await getPosts();
+  // TODO: zdjąć zieleń ze zdjęcia
+---
+
+<section class="knowledge">
+  <div class="container mx-auto pt-28">
+    <div class="grid grid-cols-12">
+      <div class="relative col-start-0 col-span-5">
+        <div class="aspect-square w-full"></div>
+        <img src={caveImageSrc} class="absolute left-0 -bottom-2 z-20">
+        <img src={caveImageSrc} class="absolute left-0 -bottom-2 blur-3xl opacity-20 z-10">
+      </div>
+      <div class="col-start-7 col-span-6 pb-28 text-white text-left">
+        <h2 class="heading h0 -ml-28 mb-12">Wiara i historia</h2>
+        <ul class="link-list">
+          {!!posts && posts.map((post: Post) => (
+            <li class="link-list-item">
+              <a href={`/post/${post.slug.current}`}>{post.title}</a>
+              <Caret />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .knowledge {
+    @apply text-xl overflow-hidden;
+    background: linear-gradient(180deg, #2B2B35 0%, #293459 100%);
+  }
+</style>

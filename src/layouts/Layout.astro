@@ -52,3 +52,58 @@ const { title, description } = Astro.props;
     <Footer />
   </body>
 </html>
+
+<style is:global>
+  html, body {
+    overflow-x: hidden;
+  }
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  .narrow {
+    @apply w-full max-w-2xl;
+  }
+  .heading {
+    font-family: 'EB Garamond', serif;
+  }
+  .h0 {
+    font-size: 96px;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -1.92px;
+  }
+  .h1 {
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -1.28px;
+  }
+  .h2 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 135%;
+    letter-spacing: -0.4px;
+  }
+  .h3 {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 100%;
+  }
+  .h4 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 120%;
+  }
+  .h5 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 150%;
+  }
+
+  .link-list {
+    @apply flex flex-col;
+  }
+  .link-list-item {
+    @apply flex justify-between items-center py-8 border-b border-white last:border-b-0;
+  }
+</style>
