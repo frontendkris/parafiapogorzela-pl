@@ -54,11 +54,11 @@ const { title, description } = Astro.props;
 </html>
 
 <style is:global>
-  html, body {
-    overflow-x: hidden;
-  }
   body {
     font-family: 'Open Sans', sans-serif;
+  }
+  .page {
+    @apply text-base xl:text-lg overflow-hidden bg-luckypoint text-white py-5 xl:py-10;
   }
   .narrow {
     @apply w-full max-w-2xl;
@@ -67,43 +67,39 @@ const { title, description } = Astro.props;
     font-family: 'EB Garamond', serif;
   }
   .h0 {
-    font-size: 96px;
-    font-weight: 500;
-    line-height: 100%;
+    @apply text-8xl max-md:text-5xl font-medium leading-none;
     letter-spacing: -1.92px;
   }
   .h1 {
-    font-size: 64px;
-    font-weight: 500;
-    line-height: 100%;
+    @apply text-6xl max-md:text-4xl font-medium leading-none;
     letter-spacing: -1.28px;
   }
   .h2 {
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 135%;
+    @apply text-[40px] max-md:text-3xl font-bold leading-snug;
     letter-spacing: -0.4px;
   }
   .h3 {
-    font-size: 36px;
-    font-weight: 500;
-    line-height: 100%;
+    @apply text-4xl max-md:text-2xl font-medium leading-none;
   }
   .h4 {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 120%;
+    @apply text-[24px] max-md:text-xl font-semibold leading-snug;
   }
   .h5 {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 150%;
+    @apply text-[20px] max-md:text-xl font-semibold leading-loose;
   }
 
   .link-list {
     @apply flex flex-col;
   }
   .link-list-item {
-    @apply flex justify-between items-center py-8 border-b border-white last:border-b-0;
+    @apply flex justify-between items-center
+    py-3 xl:py-6
+    border-b border-white last:border-b-0;
+  }
+  .link-list-item a {
+    @apply flex justify-between items-center
+    w-full py-2 pr-3 hover:pr-0 hover:pl-0
+    underline decoration-transparent hover:decoration-white
+    ease-in-out duration-150;
   }
 </style>

@@ -1,40 +1,33 @@
 ---
+import Caret from './Partials/Caret.astro';
 type Props = {
   title: string;
-  priority?: "primary" | "secondary";
-  url?: string;
+  priority?: "primary" | "secondary" | "tertiary";
+  url: string;
+  arrow?: boolean;
 }
 
-const { title, priority = "primary", url }: Props = Astro.props;
-
-// TODO: simple red link with arrow
+const { title, priority = "primary", url, arrow = false }: Props = Astro.props;
 ---
 
 <a role="button" href={url}>
-  <div class:list={[
-    "flex justify-start items-center gap-2",
-    "py-4 px-8",
-    `btn btn--${priority}`
-  ]}>
-    {title}
+  <div class={`btn btn--${priority} ${arrow ? '!pr-6' : ''}`}>
+    <span>{title}</span>
+    { arrow && <Caret /> }
   </div>
 </a>
 
 <style>
   .btn {
-    font-size: 20px;
-    font-weight: 600;
-    text-align: center;
-    border: 2px solid;
+    @apply flex justify-center xl:justify-start items-center gap-4 py-3 xl:py-4 px-4 xl:px-8 text-center border-2 font-semibold xl:text-xl transition ease-in-out duration-150;
   }
   .btn--primary {
-    background-color: white;
-    border-color: white;
-    color: #293459;
+    @apply bg-white border-white text-luckypoint hover:bg-luckypoint hover:border-luckypoint hover:text-white hover:brightness-125;
   }
   .btn--secondary {
-    background-color: transparent;
-    border-color: white;
-    color: white;
+    @apply bg-transparent bg-luckypoint border-luckypoint text-white hover:text-white hover:border-white hover:bg-luckypoint hover:brightness-125;
+  }
+  .btn--tertiary {
+    @apply bg-transparent py-0 px-0 border-0 text-red hover:text-white w-max;
   }
 </style>

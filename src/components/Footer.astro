@@ -3,10 +3,10 @@ import { siteSettings } from "../utils/store";
 ---
 <footer class="site-footer">
   <div class="container mx-auto">
-    <div class="flex justify-between items-end">
+    <div class="footer-grid">
       <div class="flex flex-col gap-10">
         <div class="group">
-          <h2 class="heading h4">Parafia pw. św. Michała Archanioła w Pogorzeli</h2>
+          <h2 class="heading h4">Parafia pw. św. Michała Archanioła <br class="xl:hidden">w Pogorzeli</h2>
           <p>ul. Rynek 43, 63-860 Pogorzela</p>
           {siteSettings?.phone &&
             <p>nr tel. {siteSettings.phone}</p>
@@ -20,8 +20,8 @@ import { siteSettings } from "../utils/store";
           </div>
         }
       </div>
-      <div>
-        <a href="//frontendkris.dev" target="_blank">Projekt i realizacja – frontendkris.dev</a>
+      <div class="author">
+        Projekt i realizacja – <a class="author-link" href="//frontendkris.dev" target="_blank">frontendkris.dev</a>
       </div>
     </div>
   </div>
@@ -29,9 +29,20 @@ import { siteSettings } from "../utils/store";
 
 <style>
   .site-footer {
-    @apply py-20 bg-nero text-white;
+    @apply relative py-10 bg-nero text-white z-50;
+  }
+  .footer-grid {
+    @apply flex flex-col lg:flex-row
+    justify-between items-start lg:items-end
+    gap-10;
   }
   .group {
     @apply flex flex-col gap-4;
+  }
+  .author {
+    @apply max-w-max text-left;
+  }
+  .author-link {
+    @apply max-w-max text-white hover:text-luckypoint hover:brightness-[300%] transition;
   }
 </style>

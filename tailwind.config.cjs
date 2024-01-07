@@ -2,6 +2,12 @@
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
+    container: {
+      padding: '1rem',
+      '@screen xl': {
+        padding: '2rem',
+      },
+    },
 		extend: {
       colors: {
         'red': '#FF0029',
@@ -11,5 +17,7 @@ module.exports = {
       },
     },
 	},
-	plugins: [],
+	plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }
