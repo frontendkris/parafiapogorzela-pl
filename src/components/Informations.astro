@@ -4,23 +4,12 @@ import type { ServiceRow, OfficeRow } from '../utils/sanity.ts'
 import Button from "./Button.astro";
 ---
 <section class="informations">
-
-  <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1394" fill="none" class="informations-bg">
-    <path d="M-44 0.5L1489 150V1394H-44L-44 0.5Z" fill="url(#paint0_radial_107_245)"/>
-    <defs>
-      <radialGradient id="paint0_radial_107_245" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1189.5 455.5) rotate(140.081) scale(2171.57 1839.13)">
-        <stop stop-color="#2B2B35"/>
-        <stop offset="1" stop-color="#0E0E12"/>
-      </radialGradient>
-    </defs>
-  </svg> -->
-  
   <div class="informations-grid">
     <div class="text-column">
       <div class="text-box">
         <h2 class="heading h1">Msze Święte</h2>
         <p>{siteSettings.messes}</p>
-        <Button priority="tertiary" title="Zobacz intencje mszalne" url={siteSettings.massIntentionsUrl} arrow />
+        <Button priority="tertiary" title="Zobacz intencje mszalne" url={siteSettings.massIntentionsUrl} arrow targetBlank />
       </div>
       <div class="text-box">
         <h3 class="heading h3">Spowiedź święta</h3>

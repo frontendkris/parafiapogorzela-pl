@@ -5,12 +5,13 @@ type Props = {
   priority?: "primary" | "secondary" | "tertiary";
   url: string;
   arrow?: boolean;
+  targetBlank?: boolean;
 }
 
-const { title, priority = "primary", url, arrow = false }: Props = Astro.props;
+const { title, priority = "primary", url, arrow = false, targetBlank = false }: Props = Astro.props;
 ---
 
-<a role="button" href={url}>
+<a role="button" href={url} target={targetBlank ? "_blank" : "_self"}>
   <div class={`btn btn--${priority} ${arrow ? '!pr-6' : ''}`}>
     <span>{title}</span>
     { arrow && <Caret /> }
