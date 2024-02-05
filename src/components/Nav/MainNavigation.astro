@@ -2,6 +2,7 @@
 import { siteSettings } from "../../utils/store";
 import Logo from "../Logo.astro";
 import type { Color } from "../Logo.astro"
+import Hamburger from "../Partials/Hamburger.astro";
 
 export type Navigation = {
   color?: Color;
@@ -15,9 +16,12 @@ const textColor = color === "light" ? "text-white" : "text-black";
   <a href="/">
     <Logo type={color} />
   </a>
-  <div class={`flex justify-center items-center gap-4 xl:gap-10 font-semibold ${textColor}`}>
-    <a href={siteSettings?.massIntentionsUrl}>Intencje</a>
-    <a href={siteSettings?.parishAnnouncementsUrl}>Ogłoszenia</a>
-    <a href="/galeria">Galeria</a>
+  <div class="w-max flex justify-end items-center gap-4 xl:gap-10">
+    <div class={`hidden lg:flex justify-center items-center gap-4 xl:gap-10 font-semibold ${textColor}`}>
+      <a href={siteSettings?.massIntentionsUrl} target="_blank">Intencje</a>
+      <a href={siteSettings?.parishAnnouncementsUrl} target="_blank">Ogłoszenia</a>
+      <a href="/galeria">Galeria</a>
+    </div>
+    <Hamburger type={color} />
   </div>
 </nav>

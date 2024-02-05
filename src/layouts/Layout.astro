@@ -2,6 +2,8 @@
 // https://docs.astro.build/en/guides/view-transitions/
 import { ViewTransitions } from 'astro:transitions';
 import Footer from '../components/Footer.astro';
+import { getPages } from '../utils/sanity';
+import Drawer from '../components/Drawer.astro';
 
 interface Props {
   title: string;
@@ -28,6 +30,9 @@ const { title, description } = Astro.props;
       name="generator"
       content={Astro.generator}
     />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
     <!-- Google fonts -->
     <link
@@ -46,6 +51,7 @@ const { title, description } = Astro.props;
     <ViewTransitions />
   </head>
   <body>
+    <Drawer />
     <main class="flex flex-col justify-center">
       <slot />
     </main>
@@ -56,6 +62,10 @@ const { title, description } = Astro.props;
 <style is:global>
   body {
     font-family: 'Open Sans', sans-serif;
+  }
+
+  a:not(a:has(.btn)) {
+    @apply hover:underline decoration-transparent hover:decoration-white ease-in-out duration-150;
   }
   .page {
     @apply text-base xl:text-lg overflow-hidden bg-luckypoint text-white py-5 xl:py-10;

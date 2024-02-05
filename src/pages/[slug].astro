@@ -1,0 +1,38 @@
+---
+import type { InferGetStaticParamsType } from "astro";
+import { PortableText } from "astro-portabletext";
+import Layout from "../layouts/Layout.astro";
+import { getPage, getPages, getPost, getPosts, type Page } from "../utils/sanity";
+import Hero from "../components/Hero/Page.astro";
+import { truncateText } from '../utils/textHelpers';
+
+export async function getStaticPaths() {
+  const pages = await getPages();
+  return pages.map((page: Page) => ({
+    params: { slug: page.slug.current },
+  }));
+}
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+const { slug } = Astro.params as Params;
+
+const page = await getPage(slug);
+const description = truncateText(page.body);
+---
+
+<Layout
+  title={page.title!}
+  description={description}
+>
+  <Hero />
+  <section class="page py-10">
+    <div class="container mx-auto">
+      <div class="hero-heading">
+        <h1 class="heading h0 text-center mt-10 mb-20">{page.title}</h1>
+      </div>
+      <div class="narrow leading-relaxed mx-auto flex flex-col gap-10 mb-10">
+        <PortableText value={page.body} />
+      </div>
+    </div>
+  </section>
+</Layout>

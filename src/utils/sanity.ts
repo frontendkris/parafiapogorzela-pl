@@ -11,6 +11,14 @@ export interface Post {
   body: PortableTextBlock[];
 }
 
+export interface Page {
+  _type: "page";
+  _createdAt: string;
+  title: string;
+  slug: Slug;
+  body: PortableTextBlock[];
+}
+
 export async function getPosts(): Promise<Post[]> {
   return await useSanityClient().fetch(
     groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`
@@ -20,6 +28,21 @@ export async function getPosts(): Promise<Post[]> {
 export async function getPost(slug: string): Promise<Post> {
   return await useSanityClient().fetch(
     groq`*[_type == "post" && slug.current == $slug][0]`,
+    {
+      slug,
+    }
+  );
+}
+
+export async function getPages(): Promise<Page[]> {
+  return await useSanityClient().fetch(
+    groq`*[_type == "page" && defined(slug.current)] | order(_createdAt desc)`
+  );
+}
+
+export async function getPage(slug: string): Promise<Post> {
+  return await useSanityClient().fetch(
+    groq`*[_type == "page" && slug.current == $slug][0]`,
     {
       slug,
     }
