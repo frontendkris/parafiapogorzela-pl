@@ -39,15 +39,19 @@ interface DrawerProps {
   </div>
 </aside>
 
-<script type="module">
-  const drawer = document.querySelector(".drawer");
-  const toggleButtons = document.querySelectorAll(".drawer-toggle");
-
-  for (const button of toggleButtons) {
-    button.addEventListener("click", () => {
-      drawer.classList.toggle("open");
-    });
+<script>
+  const handleDrawer = () => {
+    const drawer = document.querySelector(".drawer");
+    const toggleButtons = document.querySelectorAll(".drawer-toggle");
+  
+    for (const button of toggleButtons) {
+      button.addEventListener("click", () => {
+        drawer?.classList.toggle("open");
+      });
+    }
   }
+
+  document.addEventListener('astro:page-load', handleDrawer);
 </script>
 
 <style>

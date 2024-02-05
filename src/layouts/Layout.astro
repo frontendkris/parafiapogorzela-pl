@@ -1,9 +1,8 @@
 ---
 // https://docs.astro.build/en/guides/view-transitions/
-import { ViewTransitions } from 'astro:transitions';
-import Footer from '../components/Footer.astro';
-import { getPages } from '../utils/sanity';
-import Drawer from '../components/Drawer.astro';
+import { ViewTransitions } from "astro:transitions";
+import Footer from "../components/Footer.astro";
+import Drawer from "../components/Drawer.astro";
 
 interface Props {
   title: string;
@@ -13,38 +12,23 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width"
-    />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/favicon.svg"
-    />
-    <meta
-      name="generator"
-      content={Astro.generator}
-    />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
-    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
     />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -56,60 +40,60 @@ const { title, description } = Astro.props;
       <slot />
     </main>
     <Footer />
+
+    <style is:global>
+      body {
+        font-family: "Open Sans", sans-serif;
+      }
+
+      a:not(a:has(.btn)) {
+        @apply hover:underline decoration-transparent hover:decoration-white ease-in-out duration-150;
+      }
+      .page {
+        @apply text-base xl:text-lg overflow-hidden bg-luckypoint text-white py-5 xl:py-10;
+      }
+      .narrow {
+        @apply w-full max-w-2xl;
+      }
+      .heading {
+        font-family: "EB Garamond", serif;
+      }
+      .h0 {
+        @apply text-8xl max-md:text-5xl font-medium leading-none;
+        letter-spacing: -1.92px;
+      }
+      .h1 {
+        @apply text-6xl max-md:text-4xl font-medium leading-none;
+        letter-spacing: -1.28px;
+      }
+      .h2 {
+        @apply text-[40px] max-md:text-3xl font-bold leading-snug;
+        letter-spacing: -0.4px;
+      }
+      .h3 {
+        @apply text-4xl max-md:text-2xl font-medium leading-none;
+      }
+      .h4 {
+        @apply text-[24px] max-md:text-xl font-semibold leading-snug;
+      }
+      .h5 {
+        @apply text-[20px] max-md:text-xl font-semibold leading-loose;
+      }
+
+      .link-list {
+        @apply flex flex-col;
+      }
+      .link-list-item {
+        @apply flex justify-between items-center
+        py-3 xl:py-6
+        border-b border-white last:border-b-0;
+        }
+      .link-list-item a {
+        @apply flex justify-between items-center
+        w-full py-2 pr-3 hover:pr-0 hover:pl-0
+        underline decoration-transparent hover:decoration-white
+        ease-in-out duration-150;
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  body {
-    font-family: 'Open Sans', sans-serif;
-  }
-
-  a:not(a:has(.btn)) {
-    @apply hover:underline decoration-transparent hover:decoration-white ease-in-out duration-150;
-  }
-  .page {
-    @apply text-base xl:text-lg overflow-hidden bg-luckypoint text-white py-5 xl:py-10;
-  }
-  .narrow {
-    @apply w-full max-w-2xl;
-  }
-  .heading {
-    font-family: 'EB Garamond', serif;
-  }
-  .h0 {
-    @apply text-8xl max-md:text-5xl font-medium leading-none;
-    letter-spacing: -1.92px;
-  }
-  .h1 {
-    @apply text-6xl max-md:text-4xl font-medium leading-none;
-    letter-spacing: -1.28px;
-  }
-  .h2 {
-    @apply text-[40px] max-md:text-3xl font-bold leading-snug;
-    letter-spacing: -0.4px;
-  }
-  .h3 {
-    @apply text-4xl max-md:text-2xl font-medium leading-none;
-  }
-  .h4 {
-    @apply text-[24px] max-md:text-xl font-semibold leading-snug;
-  }
-  .h5 {
-    @apply text-[20px] max-md:text-xl font-semibold leading-loose;
-  }
-
-  .link-list {
-    @apply flex flex-col;
-  }
-  .link-list-item {
-    @apply flex justify-between items-center
-    py-3 xl:py-6
-    border-b border-white last:border-b-0;
-  }
-  .link-list-item a {
-    @apply flex justify-between items-center
-    w-full py-2 pr-3 hover:pr-0 hover:pl-0
-    underline decoration-transparent hover:decoration-white
-    ease-in-out duration-150;
-  }
-</style>
