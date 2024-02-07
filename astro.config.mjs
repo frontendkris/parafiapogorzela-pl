@@ -26,13 +26,26 @@ export default defineConfig({
   // Hybrid+adapter is required to support embedded Sanity Studio
   output: "hybrid",
   adapter: vercel(),
-  integrations: [sanity({
-    projectId,
-    dataset,
-    studioBasePath: "/admin",
-    useCdn: false,
-    // `false` if you want to ensure fresh data
-    apiVersion: "2023-03-20" // Set to date of setup to use the latest API version
-  }), react() // Required for Sanity Studio
-  , tailwind()]
+  integrations: [
+    sanity({
+      projectId,
+      dataset,
+      studioBasePath: "/admin",
+      useCdn: false, // `false` if you want to ensure fresh data
+      apiVersion: "2023-03-20" // Set to date of setup to use the latest API version
+    }),
+    react(), // Required for Sanity Studio
+    tailwind()
+  ],
+  redirects: {
+    '/intencje-mszalne': '/',
+    '/ogłoszenia-parafialne': '/',
+    '/kontakt': '/',
+    '/global-styles': '/',
+    '/koleda-2023': '/',
+    '/elementor-222': '/',
+    '/elementor-284': '/',
+    '/orszak-3-kroli': '/',
+    '/author/janusz': '/',
+  }
 });

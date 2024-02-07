@@ -32,7 +32,7 @@ export default defineConfig({
     deskTool({
       structure: myStructure,
     }),
-    visionTool()
+    visionTool(),
   ],
   schema: {
     types: schemaTypes,
