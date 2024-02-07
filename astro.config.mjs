@@ -40,6 +40,7 @@ export default defineConfig({
   redirects: {
     '/intencje-mszalne': '/',
     '/ogłoszenia-parafialne': '/',
+    '/ogloszenia-parafialne': '/',
     '/kontakt': '/',
     '/global-styles': '/',
     '/koleda-2023': '/',
