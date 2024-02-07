@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero/Page.astro";
+import Button from "../components/Button.astro";
+---
+
+<Layout
+  title={""}
+  description={""}
+>
+  <Hero />
+  <section class="page py-10">
+    <div class="container mx-auto h-96 flex items-center justify-center">
+      <div class="hero-heading my-auto">
+        <p class="text-center mb-6">Błąd 404</p>
+        <h1 class="heading h3 text-center mb-16">Strona nie została znaleziona</h1>
+        <div class="flex flex-row justify-center items-center">
+          <Button title="Przejdź do strony głównej" arrow priority="primary" url="/" />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
