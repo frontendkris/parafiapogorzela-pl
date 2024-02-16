@@ -1,5 +1,20 @@
 ---
 
 ---
+<div id="visitCounter">Liczba odwiedzin: ładowanie...</div>
 
-<script data-goatcounter="https://parafiapogorzela.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+  var r = new XMLHttpRequest();
+  r.addEventListener("load", function () {
+    const visitCount = JSON.parse(this.responseText).count;
+    document.querySelector("#visitCounter")!.innerHTML =
+      `Liczba odwiedzin: ${parseInt(visitCount.toLocaleString('pl-PL'))}`;
+  });
+  r.open(
+    "GET",
+    "https://parafiapogorzela.goatcounter.com/counter/" +
+      encodeURIComponent(location.pathname) +
+      ".json"
+  );
+  r.send();
+</script>

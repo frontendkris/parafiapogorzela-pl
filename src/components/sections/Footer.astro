@@ -1,8 +1,9 @@
 ---
+import Analytics from "@components/Analytics.astro";
 import { siteSettings } from "../../utils/store";
 ---
 <footer class="site-footer">
-  <div class="container mx-auto">
+  <div class="container mx-auto relative">
     <div class="footer-grid">
       <div class="flex flex-col gap-10">
         <div class="group">
@@ -23,6 +24,9 @@ import { siteSettings } from "../../utils/store";
         }
       </div>
       <div class="author">
+        <div class="mb-4 text-right">
+          <Analytics />
+        </div>
         Projekt i realizacja – <a class="author-link" href="//frontendkris.dev" target="_blank">frontendkris.dev</a>
       </div>
     </div>
