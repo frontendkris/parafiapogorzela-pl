@@ -20,13 +20,13 @@ const { title, priority = "primary", url, arrow = false, targetBlank = false }: 
 
 <style>
   .btn {
-    @apply flex justify-center xl:justify-start items-center gap-4 py-3 xl:py-4 px-4 xl:px-8 text-center border-2 font-semibold xl:text-xl transition ease-in-out duration-150;
+    @apply flex justify-center xl:justify-start items-center gap-4 py-3 xl:py-4 px-4 xl:px-8 text-center border-none font-semibold xl:text-xl transition;
   }
   .btn--primary {
-    @apply bg-white border-white text-luckypoint hover:bg-luckypoint hover:border-luckypoint hover:text-white hover:brightness-125;
+    @apply bg-gray-100 text-luckypoint hover:shadow-lg hover:from-white hover:bg-white;
   }
   .btn--secondary {
-    @apply bg-transparent bg-luckypoint border-luckypoint text-white hover:text-white hover:border-white hover:bg-luckypoint hover:brightness-125;
+    @apply bg-transparent bg-luckypoint text-white hover:brightness-150 hover:shadow-lg;
   }
   .btn--tertiary {
     @apply bg-transparent py-0 px-0 border-0 text-red hover:text-white w-max;
