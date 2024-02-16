@@ -1,5 +1,4 @@
 ---
-import {siteSettings} from "../../utils/store.ts";
 import Button from "../Button.astro";
 import MainNavigation from "../Nav/MainNavigation.astro";
 ---
@@ -13,8 +12,8 @@ import MainNavigation from "../Nav/MainNavigation.astro";
           <span class="heading h0">Michała Archanioła</span>
         </h1>
         <div class="hero-buttons">
-          <Button priority="primary" title="Intencje mszalne" url={siteSettings?.massIntentionsUrl} targetBlank />
-          <Button priority="secondary" title="Ogłoszenia parafialne" url={siteSettings?.parishAnnouncementsUrl} targetBlank />
+          <Button priority="primary" title="Intencje mszalne" url="/intencje-mszalne" />
+          <Button priority="secondary" title="Ogłoszenia parafialne" url="/ogloszenia-parafialne" />
         </div>
       </div>
     </div>

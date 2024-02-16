@@ -38,9 +38,7 @@ export default defineConfig({
     tailwind()
   ],
   redirects: {
-    '/intencje-mszalne': '/',
-    '/ogłoszenia-parafialne': '/',
-    '/ogloszenia-parafialne': '/',
+    '/ogłoszenia-parafialne': '/ogloszenia-parafialne',
     '/kontakt': '/',
     '/global-styles': '/',
     '/koleda-2023': '/',

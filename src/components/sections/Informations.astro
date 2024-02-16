@@ -1,44 +1,67 @@
 ---
-import {siteSettings} from "../utils/store.ts";
-import type { ServiceRow, OfficeRow } from '../utils/sanity.ts'
-import Button from "./Button.astro";
+import { siteSettings } from "../../utils/store.ts";
+import type { ServiceRow, OfficeRow } from "../../utils/sanity.ts";
+import Button from "../Button.astro";
 ---
+
 <section class="informations">
   <div class="informations-grid">
     <div class="text-column">
       <div class="text-box">
         <h2 class="heading h1">Msze Święte</h2>
-        <p>{siteSettings.messes}</p>
-        <Button priority="tertiary" title="Zobacz intencje mszalne" url={siteSettings.massIntentionsUrl} arrow targetBlank />
+        <p>{siteSettings?.messes}</p>
+        <Button
+          priority="tertiary"
+          title="Zobacz intencje mszalne"
+          url={siteSettings?.massIntentionsUrl}
+          arrow
+          targetBlank
+        />
       </div>
       <div class="text-box">
         <h3 class="heading h3">Spowiedź święta</h3>
-        <p>{siteSettings.confession}</p>
+        <p>{siteSettings?.confession}</p>
       </div>
       <div class="text-box">
         <h3 class="heading h3">Nabożeństwa</h3>
-        {siteSettings.services.map((row: ServiceRow) => (
-          <p>
-            <span class="font-semibold">{row.name}</span>
-            {!!row.when && <><br>{row.when}</>}
-          </p>
-        ))}
+        {
+          siteSettings?.services.map((row: ServiceRow) => (
+            <p>
+              <span class="font-semibold">{row.name}</span>
+              {!!row.when && (
+                <>
+                  <br />
+                  {row.when}
+                </>
+              )}
+            </p>
+          ))
+        }
       </div>
       <div class="text-box">
         <h3 class="heading h3">Biuro Parafialne</h3>
         <div class="flex gap-10 leading-normal">
           <div class="flex flex-col gap-4">
-            {siteSettings.office.map((row: OfficeRow) => (
-              <p class="font-semibold">{row.day}</p>
-            ))}
+            {
+              siteSettings?.office.map((row: OfficeRow) => (
+                <p class="font-semibold">{row.day}</p>
+              ))
+            }
           </div>
           <div class="flex flex-col gap-4">
-            {siteSettings.office.map((row: OfficeRow) => (
-              <p>
-                {row.hours}
-                {!!row.note && <><br />{row.note}</>}
-              </p>
-            ))}
+            {
+              siteSettings?.office.map((row: OfficeRow) => (
+                <p>
+                  {row.hours}
+                  {!!row.note && (
+                    <>
+                      <br />
+                      {row.note}
+                    </>
+                  )}
+                </p>
+              ))
+            }
           </div>
         </div>
       </div>
@@ -46,8 +69,18 @@ import Button from "./Button.astro";
     <div class="patron">
       <div class="patron-sticky">
         <div class="patron-images">
-          <img loading="lazy" src="/michael-original.jpg" alt="Wizerunek patrona parafii – św. Michał Archanioł" class="patron-front">
-          <img loading="lazy" src="/michael-original.jpg" alt="Wizerunek patrona parafii – św. Michał Archanioł – romzyte tło" class="patron-bg">
+          <img
+            loading="eager"
+            src="/michael-original.jpg"
+            alt="Wizerunek patrona parafii – św. Michał Archanioł"
+            class="patron-front"
+          />
+          <img
+            loading="eager"
+            src="/michael-original.jpg"
+            alt="Wizerunek patrona parafii – św. Michał Archanioł – romzyte tło"
+            class="patron-bg"
+          />
         </div>
       </div>
     </div>
@@ -59,13 +92,13 @@ import Button from "./Button.astro";
     @apply relative flex justify-center -mt-[25vh] pt-40 pb-20 max-h-max md:text-xl bg-no-repeat bg-cover;
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1394" fill="none" class="informations-bg"><path d="M-44 0.5L1489 150V1394H-44L-44 0.5Z" fill="url(%23paint0_radial_107_245)"/><defs><radialGradient id="paint0_radial_107_245" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1189.5 455.5) rotate(140.081) scale(2171.57 1839.13)"><stop stop-color="%232B2B35"/><stop offset="1" stop-color="%230E0E12"/></radialGradient></defs></svg>');
   }
-  
+
   .informations-grid {
     @apply container relative
     flex flex-col-reverse mx-auto gap-10 lg:gap-20
     lg:grid lg:grid-cols-12 lg:items-stretch;
   }
-  
+
   .text-column {
     @apply relative 
     flex flex-col
@@ -76,8 +109,6 @@ import Button from "./Button.astro";
   .text-box {
     @apply flex flex-col gap-y-5 px-5 whitespace-pre-wrap;
   }
-
-  /* TODO: sticky image */
   .patron {
     @apply relative h-full grid col-start-7 col-span-5 z-10;
   }

@@ -1,8 +1,9 @@
 ---
 // https://docs.astro.build/en/guides/view-transitions/
 import { ViewTransitions } from "astro:transitions";
-import Footer from "../components/Footer.astro";
-import Drawer from "../components/Drawer.astro";
+import Footer from "../components/sections/Footer.astro";
+import Drawer from "../components/sections/Drawer.astro";
+import Analytics from "../components/Analytics.astro";
 
 interface Props {
   title: string;
@@ -17,7 +18,6 @@ const { title, description } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -33,6 +33,7 @@ const { title, description } = Astro.props;
     <title>{title}</title>
     <meta name="description" content={description} />
     <ViewTransitions />
+    <Analytics />
   </head>
   <body>
     <Drawer />

@@ -38,6 +38,7 @@ export default defineType({
         decorators: [
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
+          {title: 'Underline', value: 'underline'},
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -56,5 +57,19 @@ export default defineType({
         ],
       },
     }),
+    {
+      type: 'image',
+        fields: [
+          {
+            name: 'alt',
+            type: 'string',
+            title: 'Alternative text',
+            description: 'Important for SEO and accessiblity.',
+              options: {
+                isHighlighted: true,
+            },
+          },
+        ],
+    }
   ],
 })

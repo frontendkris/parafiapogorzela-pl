@@ -5,15 +5,21 @@ export default defineType({
   title: 'Ustawienia strony',
   type: 'document',
   fields: [
+    {
+      name: 'views',
+      title: 'Liczba wyświetleń strony',
+      type: 'number',
+      readOnly: true,
+    },
     defineField({
       name: 'massIntentions',
-      type: 'file',
-      title: 'Intencje Mszalne (.pdf)'
+      type: 'blockContent',
+      title: 'Intencje Mszalne'
     }),
     defineField({
       name: 'parishAnnouncements',
-      type: 'file',
-      title: 'Ogłoszenia Parafialne (.pdf)'
+      type: 'blockContent',
+      title: 'Ogłoszenia Parafialne'
     }),
     defineField({
       name: 'messes',

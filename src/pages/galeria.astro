@@ -4,9 +4,8 @@ import {siteSettings} from "../utils/store.ts";
 import type {albumsCollection, Album} from "../utils/sanity.ts";
 import Caret from "../components/Partials/Caret.astro";
 import Hero from "../components/Hero/Page.astro";
-//TODO: link hover
-
 ---
+
 <Layout
   title="Galeria Zdjęć Wydarzeń Parafialnych – Żywa Społeczność, Wiara i Tradycja"
   description="Odkryj piękno i ducha wspólnoty naszej parafii. Przeglądaj galerię zdjęć z wydarzeń parafialnych, które odzwierciedlają naszą wiarę, tradycję i zaangażowanie społeczne. Dołącz do nas i bądź częścią naszej rodziny parafialnej."
@@ -18,21 +17,25 @@ import Hero from "../components/Hero/Page.astro";
         <h1 class="heading h0 text-center mt-10 mb-10 xl:mb-20">Galeria zdjęć</h1>
       </div>
       <div class="narrow mx-auto flex flex-col xl:gap-10">
-        {siteSettings?.galleryLinks.map((albumsCollection: albumsCollection) => (
-          <div class="lg:flex lg:gap-10 lg:items-start lg:relative">
-            <h2 class="heading h1 text-left mt-6 lg:absolute lg:right-full lg:pr-10 lg:mt-3">{albumsCollection.year}</h2>
-            <ul class="link-list w-full">
-              {!!albumsCollection.albums &&
-                albumsCollection.albums.map((album: Album) => (
-                  !!album.link &&
-                  <li class="link-list-item">
-                    <a href={album.link} target="_blank"><span>{album.name}</span><Caret /></a>
-                  </li>
-                )
-              )}
-            </ul>
-          </div>
-        ))}
+        {
+          !!siteSettings?.galleryLinks &&
+          siteSettings?.galleryLinks.map((albumsCollection: albumsCollection) => (
+            <div class="lg:flex lg:gap-10 lg:items-start lg:relative">
+              <h2 class="heading h1 text-left mt-6 lg:absolute lg:right-full lg:pr-10 lg:mt-3">{albumsCollection.year}</h2>
+              <ul class="link-list w-full">
+                {
+                  !!albumsCollection.albums &&
+                  albumsCollection.albums.map((album: Album) => (
+                    !!album.link &&
+                    <li class="link-list-item">
+                      <a href={album.link} target="_blank"><span>{album.name}</span><Caret /></a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>

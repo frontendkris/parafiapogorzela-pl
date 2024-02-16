@@ -1,5 +1,5 @@
 ---
-import { siteSettings } from "../utils/store";
+import { siteSettings } from "../../utils/store";
 ---
 <footer class="site-footer">
   <div class="container mx-auto">
@@ -8,15 +8,17 @@ import { siteSettings } from "../utils/store";
         <div class="group">
           <h2 class="heading h4">Parafia pw. św. Michała Archanioła <br class="xl:hidden">w Pogorzeli</h2>
           <p>ul. Rynek 43, 63-860 Pogorzela</p>
-          {siteSettings?.phone &&
-            <p>nr tel. {siteSettings.phone}</p>
+          {
+            siteSettings?.phone &&
+            <p>nr tel. {siteSettings?.phone}</p>
           }
         </div>
   
-        {siteSettings?.bankAccount &&
+        {
+          siteSettings?.bankAccount &&
           <div class="group">
             <h3 class="h5">Konto bankowe</h3>
-            <p>{siteSettings.bankAccount}</p>
+            <p>{siteSettings?.bankAccount}</p>
           </div>
         }
       </div>

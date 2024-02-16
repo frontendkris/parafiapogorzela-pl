@@ -74,8 +74,8 @@ export type albumsCollection = {
 export async function getOptions(): Promise<{ [key: string]: any }> {
   return await useSanityClient().fetch(
     groq`*[_type == "siteSettings"][0]{
-      "massIntentionsUrl": massIntentions.asset->url,
-      "parishAnnouncementsUrl": parishAnnouncements.asset->url,
+      "massIntentions": massIntentions,
+      "parishAnnouncements": parishAnnouncements,
       "phone": phone,
       "address": address,
       "messes": messes,

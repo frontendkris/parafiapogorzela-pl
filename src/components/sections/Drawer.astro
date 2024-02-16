@@ -1,7 +1,7 @@
 ---
-import { siteSettings, navLinks } from "../utils/store";
-import Logo from "./Logo.astro";
-import CloseMenu from "./Partials/CloseMenu.astro";
+import { siteSettings, navLinks } from "../../utils/store";
+import Logo from "../Partials/Logo.astro";
+import CloseMenu from "../Partials/CloseMenu.astro";
 
 interface Link {
   slug?: string;
@@ -24,8 +24,8 @@ interface DrawerProps {
     </div>
     <nav class="m-auto w-max text-center mt-20 lg:mt-40">
       <ul class="flex flex-col gap-y-4 lg:gap-y-8 text-lg lg:text-xl">
-        <li><a href={siteSettings?.massIntentionsUrl} target="_blank">Intencje</a></li>
-        <li><a href={siteSettings?.parishAnnouncementsUrl} target="_blank">Ogłoszenia</a></li>
+        <li><a href="/intencje-mszalne" target="_self">Intencje</a></li>
+        <li><a href="/ogloszenia-parafialne" target="_self">Ogłoszenia</a></li>
         <li><a href="/galeria">Galeria</a></li>
         {
           navLinks?.map((link) => (

@@ -5,6 +5,7 @@ import Layout from "../../layouts/Layout.astro";
 import { getPost, getPosts } from "../../utils/sanity";
 import Hero from "../../components/Hero/Page.astro";
 import { truncateText } from '../../utils/textHelpers';
+import ArticleContainer from "../../components/ArticleContainer.astro";
 
 export async function getStaticPaths() {
   const posts = await getPosts();
@@ -30,9 +31,9 @@ const description = truncateText(post.body);
       <div class="hero-heading">
         <h1 class="heading h0 text-center mt-10 mb-20">{post.title}</h1>
       </div>
-      <div class="narrow leading-relaxed mx-auto flex flex-col gap-10 mb-10">
+      <ArticleContainer>
         <PortableText value={post.body} />
-      </div>
+      </ArticleContainer>
     </div>
   </section>
 </Layout>
