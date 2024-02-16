@@ -4,17 +4,34 @@
 <div id="visitCounter">Liczba odwiedzin: ładowanie...</div>
 
 <script>
-  var r = new XMLHttpRequest();
-  r.addEventListener("load", function () {
-    const visitCount = JSON.parse(this.responseText).count;
-    document.querySelector("#visitCounter")!.innerHTML =
-      `Liczba odwiedzin: ${parseInt(visitCount.toLocaleString('pl-PL'))}`;
-  });
-  r.open(
-    "GET",
-    "https://parafiapogorzela.goatcounter.com/counter/" +
-      encodeURIComponent(location.pathname) +
-      ".json"
-  );
-  r.send();
+  //@ts-nocheck
+  const ensureGoatCounterScript = () => {
+    if (!document.querySelector('script[data-goatcounter]')) {
+      const script = document.createElement('script');
+      script.setAttribute('data-goatcounter', 'https://parafiapogorzela.goatcounter.com/count');
+      script.async = true;
+      script.src = '//gc.zgo.at/count.js';
+      document.head.appendChild(script);
+    }
+  }
+
+  const getTotalViews = async () => {
+    try {
+      const response = await fetch(
+        `https://parafiapogorzela.goatcounter.com/counter/${encodeURIComponent(location.pathname)}.json`
+      );
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      const visitCount = data.count;
+      document.querySelector("#visitCounter").innerHTML =
+        `Liczba odwiedzin: ${parseInt(visitCount.toLocaleString('pl-PL'))}`;
+    } catch (error) {
+      console.error('Error fetching visit count:', error);
+    }
+  }
+
+  document.addEventListener('astro:page-load', ensureGoatCounterScript);
+  document.addEventListener('astro:page-load', getTotalViews);
 </script>
