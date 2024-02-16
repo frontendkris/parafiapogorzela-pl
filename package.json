@@ -1,7 +1,7 @@
 {
   "name": "app",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -13,6 +13,7 @@
     "@astrojs/check": "0.2.0",
     "@astrojs/react": "3.0.2",
     "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/ts-plugin": "^1.5.2",
     "@astrojs/vercel": "4.0.5",
     "@portabletext/react": "^3.0.11",
     "@portabletext/to-html": "^2.0.5",
