@@ -7,9 +7,7 @@ import heroBgDesktopImage from "src/assets/hero-bg-desktop.jpg";
 import heroBgMobileImage from "src/assets/hero-bg-mobile.jpg";
 ---
 
-<section
-  class="relative fullscreen fullscreen--home overflow-hidden flex justify-center items-start"
->
+<section class="relative fullscreen fullscreen--home overflow-hidden">
   <div class="container mx-auto relative z-10">
     <div class="flex flex-col justify-between">
       <MainNavigation color="light" />
@@ -37,7 +35,7 @@ import heroBgMobileImage from "src/assets/hero-bg-mobile.jpg";
     src={heroBgFullHDImage}
     width={heroBgFullHDImage.width}
     height={heroBgFullHDImage.height}
-    widths={[1536, 1600, 1800, 1920]}
+    widths={[1536, 1600, 1800, 1920, heroBgFullHDImage.width]}
     alt="Obraz kościoła pw. Św. Michała Archanioła w Pogorzeli"
     loading="eager"
     decoding="sync"
@@ -75,7 +73,7 @@ import heroBgMobileImage from "src/assets/hero-bg-mobile.jpg";
     decoding="sync"
     formats={["avif", "webp", "jpeg"]}
     fallbackFormat={heroBgMobileImage.format}
-    class="block md:hidden absolute z-0 max-w-none min-h-dvh min-w-full -top-[8dvh] left-1/2 -translate-x-1/2 h-auto w-auto m-auto object-cover"
+    class="block md:hidden absolute z-0 max-w-none min-h-dvh min-w-full -top-[8dvh] left-1/2 -translate-x-1/2 h-auto w-auto m-auto"
   />
 </section>
 
