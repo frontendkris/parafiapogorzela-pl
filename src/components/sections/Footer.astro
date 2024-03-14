@@ -2,32 +2,38 @@
 import Analytics from "@components/Analytics.astro";
 import { siteSettings } from "../../utils/store";
 ---
+
 <footer class="site-footer">
   <div class="container mx-auto relative">
     <div class="footer-grid">
       <div class="flex flex-col gap-10">
         <div class="group">
-          <h2 class="heading h4">Parafia pw. św. Michała Archanioła <br class="xl:hidden">w Pogorzeli</h2>
+          <h2 class="heading h4"
+            >Parafia pw. św. Michała Archanioła <br class="xl:hidden" />w
+            Pogorzeli</h2
+          >
           <p>ul. Rynek 43, 63-860 Pogorzela</p>
-          {
-            siteSettings?.phone &&
-            <p>nr tel. {siteSettings?.phone}</p>
-          }
+          {siteSettings?.phone && <p>nr tel. {siteSettings?.phone}</p>}
         </div>
-  
+
         {
-          siteSettings?.bankAccount &&
-          <div class="group">
-            <h3 class="h5">Konto bankowe</h3>
-            <p>{siteSettings?.bankAccount}</p>
-          </div>
+          siteSettings?.bankAccount && (
+            <div class="group">
+              <h3 class="h5">Konto bankowe</h3>
+              <p>{siteSettings?.bankAccount}</p>
+            </div>
+          )
         }
       </div>
       <div class="author">
         <div class="mb-4 text-right">
           <Analytics />
         </div>
-        Projekt i realizacja – <a class="author-link" href="//frontendkris.dev" target="_blank">frontendkris.dev</a>
+         Projekt i realizacja – <a
+          class="author-link"
+          href="//frontendkris.dev"
+          target="_blank">frontendkris.dev</a
+        >
       </div>
     </div>
   </div>
@@ -49,6 +55,6 @@ import { siteSettings } from "../../utils/store";
     @apply max-w-max text-left;
   }
   .author-link {
-    @apply max-w-max text-white hover:text-luckypoint hover:brightness-[300%] transition;
+    @apply max-w-max text-white hover:text-luckypoint hover:brightness-[300%] transition no-underline hover:no-underline;
   }
 </style>
