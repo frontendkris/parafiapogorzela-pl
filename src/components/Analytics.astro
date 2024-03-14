@@ -31,9 +31,7 @@
       const visitCount = data.count;
       document.querySelector(
         "#visitCounter"
-      ).innerHTML = `Liczba odwiedzin: ${parseInt(
-        visitCount.toLocaleString("pl-PL")
-      )}`;
+      ).innerHTML = `Liczba odwiedzin: ${visitCount}`;
     } catch (error) {
       console.error("Error fetching visit count:", error);
     }
