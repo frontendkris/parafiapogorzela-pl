@@ -1,19 +1,30 @@
 ---
-const imagePaths = [
-  '/images-carousel/slide-1.jpg',
-  '/images-carousel/slide-2.jpg',
-  '/images-carousel/slide-3.jpg',
-  '/images-carousel/slide-4.jpg',
-  '/images-carousel/slide-5.jpg',
-];
+import type { ImageMetadata } from "astro";
+import { Picture } from "astro:assets";
+
+const images = await Astro.glob("../assets/carousel/*.*").then((files: any) => {
+  return files.map((file: any) => file.default);
+});
 ---
+
 <div class="swiper overflow-visible">
   <div class="swiper-wrapper overflow-visible">
-    {imagePaths.map(image => (
-      <div class="swiper-slide">
-        <img src={image} loading="lazy" />
-      </div>
-    ))}
+    {
+      images.map((image: ImageMetadata) => (
+        <div class="swiper-slide">
+          <Picture
+            src={image}
+            width={image.width}
+            height={image.height}
+            alt="Zdjęcie z życia parafii pw. Św. Michała Archanioła w Pogorzeli"
+            loading="lazy"
+            decoding="async"
+            formats={["avif", "webp", "jpeg"]}
+            fallbackFormat={image.format}
+          />
+        </div>
+      ))
+    }
   </div>
 </div>
 
@@ -25,48 +36,47 @@ const imagePaths = [
 
 <script>
   const loadSwiper = async () => {
-    if (!document.querySelector('.swiper-container')) {
-      
-      const swiperCSS = document.createElement('link');
-      swiperCSS.href = 'https://cdn.jsdelivr.net/npm/swiper@11.0.6/swiper-bundle.min.css';
-      swiperCSS.rel = 'stylesheet';
+    if (!document.querySelector(".swiper-container")) {
+      const swiperCSS = document.createElement("link");
+      swiperCSS.href =
+        "https://cdn.jsdelivr.net/npm/swiper@11.0.6/swiper-bundle.min.css";
+      swiperCSS.rel = "stylesheet";
       document.head.appendChild(swiperCSS);
 
-      const swiperJS = document.createElement('script');
-      swiperJS.src = 'https://cdn.jsdelivr.net/npm/swiper@11.0.6/swiper-bundle.min.js';
+      const swiperJS = document.createElement("script");
+      swiperJS.src =
+        "https://cdn.jsdelivr.net/npm/swiper@11.0.6/swiper-bundle.min.js";
       swiperJS.async = true;
       document.body.appendChild(swiperJS);
 
       swiperJS.onload = () => {
         // @ts-ignore
-        new Swiper('.swiper', {
+        new Swiper(".swiper", {
           slidesPerView: 1.15,
           spaceBetween: 20,
           centeredSlides: false,
           breakpoints: {
             640: {
               slidesPerView: 1.15,
-              spaceBetween: 10
+              spaceBetween: 10,
             },
             768: {
               slidesPerView: 2.25,
-              spaceBetween: 20
+              spaceBetween: 20,
             },
             1024: {
               slidesPerView: 3.5,
-              spaceBetween: 40
+              spaceBetween: 40,
             },
             1280: {
               slidesPerView: 4,
-              spaceBetween: 40
-            }
-          }
+              spaceBetween: 40,
+            },
+          },
         });
       };
     }
   };
 
-
-  document.addEventListener('astro:page-load', loadSwiper);
+  document.addEventListener("astro:page-load", loadSwiper);
 </script>
-

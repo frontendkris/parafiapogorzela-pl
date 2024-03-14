@@ -46,5 +46,5 @@ export default defineConfig({
     '/elementor-284': '/',
     '/orszak-3-kroli': '/',
     '/author/janusz': '/',
-  }
+  },
 });

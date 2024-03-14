@@ -17,7 +17,7 @@
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
-      },
+      }
     ],
     "baseUrl": ".",
     "paths": {
@@ -25,9 +25,9 @@
       "@layouts/*": ["src/layouts/*"],
       "@partials/*": ["src/components/Partials/*"],
       "@sections/*": ["src/components/sections/*"],
-      "@nav/*": ["src/components/Nav/*"],
+      "@nav/*": ["src/components/Nav/*"]
     }
   },
-  "includes": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "dist", ".vercel"],
+  "includes": ["**/*.ts", "**/*.tsx", "**/*.astro"],
+  "exclude": ["node_modules", "dist", ".vercel"]
 }

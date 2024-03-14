@@ -1,38 +1,93 @@
 ---
 import Button from "../Button.astro";
 import MainNavigation from "../Nav/MainNavigation.astro";
+import { Picture } from "astro:assets";
+import heroBgFullHDImage from "src/assets/hero-bg-hd.jpg";
+import heroBgDesktopImage from "src/assets/hero-bg-desktop.jpg";
+import heroBgMobileImage from "src/assets/hero-bg-mobile.jpg";
 ---
-<section class="fullscreen fullscreen--home hero-bg--home">
-  <div class="container mx-auto relative">
+
+<section
+  class="relative fullscreen fullscreen--home overflow-hidden flex justify-center items-start"
+>
+  <div class="container mx-auto relative z-10">
     <div class="flex flex-col justify-between">
       <MainNavigation color="light" />
       <div class="hero-heading">
         <h1>
-          <span class="heading h2">Parafia pw. św.</span><br>
+          <span class="heading h2">Parafia pw. św.</span><br />
           <span class="heading h0">Michała Archanioła</span>
         </h1>
         <div class="hero-buttons">
-          <Button priority="primary" title="Intencje mszalne" url="/intencje-mszalne" />
-          <Button priority="secondary" title="Ogłoszenia parafialne" url="/ogloszenia-parafialne" />
+          <Button
+            priority="primary"
+            title="Intencje mszalne"
+            url="/intencje-mszalne"
+          />
+          <Button
+            priority="secondary"
+            title="Ogłoszenia parafialne"
+            url="/ogloszenia-parafialne"
+          />
         </div>
       </div>
     </div>
   </div>
+  <Picture
+    src={heroBgFullHDImage}
+    width={heroBgFullHDImage.width}
+    height={heroBgFullHDImage.height}
+    widths={[1536, 1600, 1800, 1920]}
+    alt="Obraz kościoła pw. Św. Michała Archanioła w Pogorzeli"
+    loading="eager"
+    decoding="sync"
+    formats={["avif", "webp", "jpeg"]}
+    fallbackFormat={heroBgFullHDImage.format}
+    class:list={[
+      "hidden 2xl:block absolute z-0 max-w-none min-h-dvh min-w-[100dvw] m-auto",
+      "top-0 left-auto right-auto",
+      "w-auto h-auto",
+    ]}
+  />
+  <Picture
+    src={heroBgDesktopImage}
+    width={heroBgDesktopImage.width}
+    height={heroBgDesktopImage.height}
+    widths={[768, 960, 1024, 1280, 1366, 1440]}
+    alt="Obraz kościoła pw. Św. Michała Archanioła w Pogorzeli"
+    loading="eager"
+    decoding="sync"
+    formats={["avif", "webp", "jpeg"]}
+    fallbackFormat={heroBgDesktopImage.format}
+    class:list={[
+      "hidden md:block 2xl:hidden absolute z-0 max-w-none min-h-dvh min-w-full m-auto",
+      "-top-[5%] lg:-top-[10%] xl:-top-[15%] 3xl:top-0 xl:left-auto right-0 xl:right-auto",
+      "w-auto md:h-[110dvh] xl:h-auto",
+    ]}
+  />
+  <Picture
+    src={heroBgMobileImage}
+    width={heroBgMobileImage.width}
+    height={heroBgMobileImage.height}
+    widths={[320, 360, 480, 512, 640, heroBgMobileImage.width]}
+    alt="Obraz kościoła pw. Św. Michała Archanioła w Pogorzeli"
+    loading="eager"
+    decoding="sync"
+    formats={["avif", "webp", "jpeg"]}
+    fallbackFormat={heroBgMobileImage.format}
+    class="block md:hidden absolute z-0 max-w-none min-h-dvh min-w-full -top-[8dvh] left-1/2 -translate-x-1/2 h-auto w-auto m-auto object-cover"
+  />
 </section>
 
 <style>
-  .hero-bg--home {
-    @apply bg-no-repeat bg-[left_90%_center] xl:bg-center bg-cover bg-nero text-white;
-    background-image: url('/hero-bg.jpg');
-  }
   .fullscreen {
     @apply w-full h-[100vh];
   }
   .fullscreen--home {
-    @apply  xl:min-h-[125vh];
+    @apply min-h-[600px] sm:min-h-[800px] xl:min-h-[125dvh] 2xl:min-h-[110dvh] 3xl:min-h-[100dvh] 3xl:h-[110dvh] bg-nero text-white;
   }
   .hero-heading {
-    @apply mt-16 lg:mt-20 text-center xl:text-left;
+    @apply mt-8 sm:mt-16 lg:mt-20 text-center xl:text-left;
   }
   .hero-buttons {
     @apply flex flex-col md:flex-row

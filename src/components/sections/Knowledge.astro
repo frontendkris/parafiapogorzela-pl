@@ -1,7 +1,8 @@
 ---
-const caveImageSrc = "/cave.png";
 import { getPosts, type Post } from "../../utils/sanity";
 import Caret from "../Partials/Caret.astro";
+import caveImageSrc from "src/assets/cave.png";
+import { Picture } from "astro:assets";
 
 const posts = await getPosts();
 ---
@@ -11,24 +12,38 @@ const posts = await getPosts();
     <div class="knowledge-grid">
       <div class="relative block lg:col-start-0 lg:col-span-5 h-full">
         <div class="static aspect-square w-full"></div>
-        <img
-          loading="lazy"
+        <Picture
           src={caveImageSrc}
+          width={caveImageSrc.width}
+          height={caveImageSrc.height}
+          alt="Grota św. Michała Archanioła w Pogorzeli"
+          loading="eager"
+          decoding="sync"
+          formats={["avif", "webp", "jpeg"]}
+          fallbackFormat={caveImageSrc.format}
           class="absolute left-0 right-0 lg:right-auto m-auto lg:m-0 -bottom-2 z-20"
         />
-        <img
-          loading="lazy"
+        <Picture
           src={caveImageSrc}
+          width={caveImageSrc.width}
+          height={caveImageSrc.height}
+          alt="Grota św. Michała Archanioła w Pogorzeli – romzyte tło"
+          loading="eager"
+          decoding="sync"
+          formats={["avif", "webp", "jpeg"]}
+          fallbackFormat={caveImageSrc.format}
           class="absolute left-0 right-0 lg:right-auto m-auto lg:m-0 -bottom-2 blur-3xl opacity-20 z-10"
         />
       </div>
       <div class="text-column">
-        <h2 class="heading h0 lg:-ml-28 mb-5 lg:mb-12 text-left">Wiara i historia</h2>
+        <h2 class="heading h0 lg:-ml-28 mb-5 lg:mb-12 text-left"
+          >Wiara i historia</h2
+        >
         <ul class="link-list">
           {
             posts?.map((post: Post) => (
               <li class="link-list-item">
-                <a href={`/post/${post.slug.current}`}>
+                <a href={`/post/${post.slug.current}`} title={post.title}>
                   {post.title}
                   <Caret />
                 </a>

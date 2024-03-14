@@ -2,6 +2,8 @@
 import { siteSettings } from "../../utils/store.ts";
 import type { ServiceRow, OfficeRow } from "../../utils/sanity.ts";
 import Button from "../Button.astro";
+import { Picture } from "astro:assets";
+import archangelImage from "src/assets/michael-original.jpg";
 ---
 
 <section class="informations">
@@ -69,16 +71,26 @@ import Button from "../Button.astro";
     <div class="patron">
       <div class="patron-sticky">
         <div class="patron-images">
-          <img
-            loading="eager"
-            src="/michael-original.jpg"
+          <Picture
+            src={archangelImage}
+            width={archangelImage.width}
+            height={archangelImage.height}
             alt="Wizerunek patrona parafii – św. Michał Archanioł"
+            loading="eager"
+            decoding="sync"
+            formats={["avif", "webp", "jpeg"]}
+            fallbackFormat={archangelImage.format}
             class="patron-front"
           />
-          <img
-            loading="eager"
-            src="/michael-original.jpg"
+          <Picture
+            src={archangelImage}
+            width={archangelImage.width}
+            height={archangelImage.height}
             alt="Wizerunek patrona parafii – św. Michał Archanioł – romzyte tło"
+            loading="eager"
+            decoding="sync"
+            formats={["avif", "webp", "jpeg"]}
+            fallbackFormat={archangelImage.format}
             class="patron-bg"
           />
         </div>
