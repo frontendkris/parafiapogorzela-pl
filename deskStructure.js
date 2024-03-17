@@ -1,12 +1,13 @@
 export const myStructure = (S) =>
   S.list()
-    .title('Base')
+    .title("Base")
     .items([
       S.listItem()
-        .title('Ustawienia strony')
+        .title("Ustawienia strony")
         .child(
-          S.document()
-            .schemaType('siteSettings')
-            .documentId('siteSettings')),
-            ...S.documentTypeListItems().filter(listItem => !['siteSettings'].includes(listItem.getId()))
-  ]);
+          S.document().schemaType("siteSettings").documentId("siteSettings")
+        ),
+      ...S.documentTypeListItems().filter(
+        (listItem) => !["siteSettings"].includes(listItem.getId())
+      ),
+    ]);

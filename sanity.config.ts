@@ -17,12 +17,13 @@ if (!projectId || !dataset) {
   );
 }
 
-import { defineConfig } from "sanity";
-import { deskTool } from "sanity/desk";
-import { colorInput } from "@sanity/color-input";
-import { visionTool } from "@sanity/vision";
-import { schemaTypes } from "./schema";
-import { myStructure } from "./deskStructure";
+import {defineConfig} from "sanity";
+import {deskTool} from "sanity/desk";
+import {colorInput} from "@sanity/color-input";
+import {visionTool} from "@sanity/vision";
+import {schemaTypes} from "./schema";
+//@ts-ignore
+import {myStructure} from "./deskStructure";
 
 export default defineConfig({
   name: "parafia-pogorzela",

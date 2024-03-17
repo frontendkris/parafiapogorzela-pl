@@ -967,12 +967,12 @@
   resolved "https://registry.npmjs.org/@sanity/icons/-/icons-1.3.10.tgz"
   integrity sha512-5wVG/vIiGuGrSmq+Bl3PY7XDgQrGv0fyHdJI64FSulnr2wH3NMqZ6C59UFxnrZ93sr7kOt0zQFoNv2lkPBi0Cg==
 
-"@sanity/icons@^2.0.0", "@sanity/icons@^2.4.0", "@sanity/icons@^2.4.1":
-  version "2.4.1"
-  resolved "https://registry.npmjs.org/@sanity/icons/-/icons-2.4.1.tgz"
-  integrity sha512-/yxcIT0k1RxStI/pP/oHM44fHI6Oxiygf0jPcdV06Ce0xfFo+51UEqJSfE8hQ3fh+uFkat8ZZObZjq5v1ceJzw==
+"@sanity/icons@^2.0.0", "@sanity/icons@^2.11.2", "@sanity/icons@^2.4.0", "@sanity/icons@^2.4.1":
+  version "2.11.2"
+  resolved "https://registry.npmjs.org/@sanity/icons/-/icons-2.11.2.tgz"
+  integrity sha512-TDA854ZCvMENPoQBqgcpTZk0r/ts+2rrcWeJcwF56BtrTFKFWU2KAgj/u2o7QDTJ3OuBOsihy8B70VZ6ab9YUw==
 
-"@sanity/image-url@^1.0.2", "@sanity/image-url@1.0.2":
+"@sanity/image-url@^1.0.2":
   version "1.0.2"
   resolved "https://registry.npmjs.org/@sanity/image-url/-/image-url-1.0.2.tgz"
   integrity sha512-C4+jb2ny3ZbMgEkLd7Z3C75DsxcTEoE+axXQJsQ75ou0AKWGdVsP351hqK6mJUUxn5HCSlu3vznoh7Yljye4cQ==
@@ -1686,7 +1686,7 @@ arrify@^1.0.1:
   resolved "https://registry.npmjs.org/arrify/-/arrify-1.0.1.tgz"
   integrity sha512-3CYzex9M9FGQjCGMGyi6/31c8GJbgb0qGyrx5HWxPd0aCwh4cB2YjMb2Xf9UuoogrMrlO9cTqnB5rI5GHZTcUA==
 
-astro-portabletext@0.9.4:
+astro-portabletext@^0.9.4:
   version "0.9.4"
   resolved "https://registry.npmjs.org/astro-portabletext/-/astro-portabletext-0.9.4.tgz"
   integrity sha512-/0TGu0AAHFMp9SB3nn74KFZJ7EqS1agNk4B3Jl4CAWvGZBy0HffbIcoFhsmwbvoSMKhvsWEHjPAhT01A1EEihQ==

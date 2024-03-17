@@ -1,6 +1,6 @@
 ---
 import Analytics from "@components/Analytics.astro";
-import { siteSettings } from "../../utils/store";
+import {siteSettings} from "../../utils/store";
 ---
 
 <footer class="site-footer">
@@ -8,14 +8,13 @@ import { siteSettings } from "../../utils/store";
     <div class="footer-grid">
       <div class="flex flex-col gap-10 w-full lg:w-auto">
         <div class="group">
-          <h2 class="heading h4"
-            >Parafia pw. św. Michała Archanioła <br class="xl:hidden" />w
-            Pogorzeli</h2
-          >
+          <h2 class="heading h4">
+            Parafia pw. św. Michała Archanioła <br class="xl:hidden" />
+             w Pogorzeli
+          </h2>
           <p>ul. Rynek 43, 63-860 Pogorzela</p>
           {siteSettings?.phone && <p>nr tel. {siteSettings?.phone}</p>}
         </div>
-
         {
           siteSettings?.bankAccount && (
             <div class="group">
@@ -29,11 +28,10 @@ import { siteSettings } from "../../utils/store";
         <div class="mb-4 text-left lg:text-right">
           <Analytics />
         </div>
-         Projekt i realizacja – <a
-          class="author-link"
-          href="//frontendkris.dev"
-          target="_blank">frontendkris.dev</a
-        >
+         Projekt i realizacja –
+        <a class="author-link" href="//frontendkris.dev" target="_blank">
+          frontendkris.dev
+        </a>
       </div>
     </div>
   </div>

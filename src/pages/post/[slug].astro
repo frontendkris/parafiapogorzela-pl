@@ -1,39 +1,37 @@
 ---
-import type { InferGetStaticParamsType } from "astro";
-import { PortableText } from "astro-portabletext";
+import type {InferGetStaticParamsType} from "astro";
+import {PortableText} from "astro-portabletext";
 import Layout from "../../layouts/Layout.astro";
-import { getPost, getPosts } from "../../utils/sanity";
+import {getPost, getPosts} from "../../utils/sanity";
 import Hero from "../../components/Hero/Page.astro";
-import { truncateText } from '../../utils/textHelpers';
+import {truncateText} from "../../utils/textHelpers";
 import ArticleContainer from "../../components/ArticleContainer.astro";
+import PortableTextInternal from "@components/PortableTextInternal.astro";
 
 export async function getStaticPaths() {
   const posts = await getPosts();
   return posts.map((post) => ({
-    params: { slug: post.slug.current },
+    params: {slug: post.slug.current},
   }));
 }
 
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;
-const { slug } = Astro.params as Params;
+const {slug} = Astro.params as Params;
 
 const post = await getPost(slug);
 const description = truncateText(post.body);
 ---
 
-<Layout
-  title={post.title!}
-  description={description}
->
+<Layout title={post.title!} description={description}>
   <Hero />
-  <section class="page py-10">
+  <article class="page py-10">
     <div class="container mx-auto">
       <div class="hero-heading">
         <h1 class="heading h0 text-center mt-10 mb-20">{post.title}</h1>
       </div>
       <ArticleContainer>
-        <PortableText value={post.body} />
+        <PortableTextInternal value={post.body} />
       </ArticleContainer>
     </div>
-  </section>
+  </article>
 </Layout>

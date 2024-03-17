@@ -1,6 +1,6 @@
 ---
 // https://docs.astro.build/en/guides/view-transitions/
-import { ViewTransitions } from "astro:transitions";
+import {ViewTransitions} from "astro:transitions";
 import Footer from "../components/sections/Footer.astro";
 import Drawer from "../components/sections/Drawer.astro";
 
@@ -9,7 +9,7 @@ interface Props {
   description: string;
 }
 
-const { title, description } = Astro.props;
+const {title, description} = Astro.props;
 ---
 
 <!doctype html>
@@ -29,7 +29,12 @@ const { title, description } = Astro.props;
       rel="stylesheet"
     />
 
-    <script data-goatcounter="https://parafiapogorzela.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script
+      data-goatcounter="https://parafiapogorzela.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    >
+    </script>
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -49,6 +54,10 @@ const { title, description } = Astro.props;
 
       a:not(a:has(.btn)) {
         @apply hover:underline decoration-transparent hover:decoration-white ease-in-out duration-150;
+      }
+
+      article a:not(a:has(.btn)) {
+        @apply underline decoration-transparent hover:decoration-red ease-in-out duration-150;
       }
       .page {
         @apply text-base xl:text-lg overflow-hidden bg-luckypoint text-white py-5 xl:py-10;
@@ -88,7 +97,7 @@ const { title, description } = Astro.props;
         @apply flex justify-between items-center
         py-3 xl:py-6
         border-b border-white last:border-b-0;
-        }
+      }
       .link-list-item a {
         @apply flex justify-between items-center
         w-full py-2 pr-3 hover:pr-0 hover:pl-0

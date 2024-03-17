@@ -1,0 +1,11 @@
+---
+import type {Props as $, List} from "astro-portabletext/types";
+
+export type Props = $<List>;
+
+const {node, index, isInline, ...attrs} = Astro.props;
+---
+
+<ul {...attrs} class="list-disc list-outside flex flex-col gap-2">
+  <slot />
+</ul>
