@@ -29,5 +29,5 @@
     }
   },
   "includes": ["**/*.ts", "**/*.tsx", "**/*.astro"],
-  "exclude": ["node_modules", "dist", ".vercel"]
+  "exclude": ["node_modules", "dist", ".vercel", ".sanity", ".github"]
 }
